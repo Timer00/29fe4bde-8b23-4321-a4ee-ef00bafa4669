@@ -1,39 +1,7 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  DocumentChartBarIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-} from '@heroicons/react/24/outline'
 import StackedLayout from "@/components/StackedLayout";
-
-const solutions = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  {
-    name: 'Integrations',
-    description: 'Connect with third-party tools and find out expectations',
-    href: '#',
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers with our engagement tool',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-  { name: 'Security', description: "Your customers' data will be safe and secure", href: '#', icon: FingerPrintIcon },
-  {
-    name: 'Reports',
-    description: 'Edit, manage and create newly informed decisions',
-    href: '#',
-    icon: DocumentChartBarIcon,
-  },
-]
 
 export default function FlyoutMenu() {
   return (
