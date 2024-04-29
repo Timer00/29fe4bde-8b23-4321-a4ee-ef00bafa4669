@@ -10,6 +10,7 @@ import { type LinkFormat, NavLinks } from '@/components/NavLinks'
 import React from "react";
 import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
 import ImageRenderer from "@/components/ImageRenderer";
+import FlyoutMenu from "@/components/FlyoutMenu";
 
 function MobileNavLink(
   props: Omit<
@@ -112,6 +113,7 @@ export function Header({ data }: { data: HeaderData }) {
                 </>
               )}
             </Popover>
+            <FlyoutMenu className=""/>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}
             </Button>
