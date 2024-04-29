@@ -113,7 +113,7 @@ export function Header({ data }: { data: HeaderData }) {
                 </>
               )}
             </Popover>
-            <FlyoutMenu className=""/>
+            <FlyoutMenu />
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}
             </Button>
