@@ -1,0 +1,384 @@
+[
+  {
+    "name": "header",
+    "logoIcon": "LogoWithLogomark",
+    "navLinks": [
+      ["Features", "/#features"],
+      ["Reviews", "/#reviews"],
+      ["Pricing", "/#pricing"],
+      ["FAQs", "/#faqs"]
+    ],
+    "mobileNavLinks": [
+      {
+        "href": "/#features",
+        "label": "Features"
+      },
+      {
+        "href": "/#reviews",
+        "label": "Reviews"
+      },
+      {
+        "href": "/#pricing",
+        "label": "Pricing"
+      },
+      {
+        "href": "/#faqs",
+        "label": "FAQs"
+      }
+    ],
+    "loginText": "Log in",
+    "downloadText": "Download the app"
+  },
+  {
+    "name": "hero",
+    "title": "Invest at the perfect time.",
+    "subtitle": "By leveraging insights from our network of industry insiders, you'll know exactly when to buy to maximize profit, and exactly when to sell to avoid painful losses.",
+    "primaryButton": {
+      "text": "Watch the vlog",
+      "href": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    "featuredIn": {
+      "title": "As featured in",
+      "logos": [
+        {
+          "name": "Forbes",
+          "logo": "LogoForbes"
+        },
+        {
+          "name": "TechCrunch",
+          "logo": "LogoTechcrunch"
+        },
+        {
+          "name": "Wired",
+          "logo": "LogoWired"
+        },
+        {
+          "name": "CNN",
+          "logo": "LogoCnn",
+          "className": "hidden xl:block"
+        },
+        {
+          "name": "BBC",
+          "logo": "LogoBbc"
+        },
+        {
+          "name": "CBS",
+          "logo": "LogoCbs"
+        },
+        {
+          "name": "Fast Company",
+          "logo": "LogoFastCompany"
+        },
+        {
+          "name": "HuffPost",
+          "logo": "LogoHuffpost",
+          "className": "hidden xl:block"
+        }
+      ]
+    }
+  },
+  {
+    "name": "primary-features",
+    "title": "Every feature you need to win. Try it for yourself.",
+    "description": "Pocket was built for investors like you who play by their own rules and aren't going to let SEC regulations get in the way of their dreams. If other investing tools are afraid to build it, Pocket has it.",
+    "features": [
+      {
+        "name": "Invite friends for better returns",
+        "description": "For every friend you invite to Pocket, you get insider notifications 5 seconds sooner. And it's 10 seconds if you invite an insider.",
+        "icon": "DeviceUserIcon",
+        "screen": "InviteScreen"
+      },
+      {
+        "name": "Notifications on stock dips",
+        "description": "Get a push notification every time we find out something that's going to lower the share price on your holdings so you can sell before the information hits the public markets.",
+        "icon": "DeviceNotificationIcon",
+        "screen": "StocksScreen"
+      },
+      {
+        "name": "Invest what you want",
+        "description": "We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.",
+        "icon": "DeviceTouchIcon",
+        "screen": "InvestScreen"
+      }
+    ]
+  },
+  {
+    "name": "secondary-features",
+    "title": "Now is the time to build your portfolio.",
+    "description": "With typical market returns, you have to start young to secure your future. With Pocket, it's never too late to build your nest egg.",
+    "features": [
+      {
+        "name": "Invest any amount",
+        "description": "Whether it's $1 or $1,000,000, we can put your money to work for you.",
+        "icon": "DeviceArrowIcon"
+      },
+      {
+        "name": "Build a balanced portfolio",
+        "description": "Invest in different industries to find the most opportunities to win huge.",
+        "icon": "DeviceCardsIcon"
+      },
+      {
+        "name": "Trade in real-time",
+        "description": "Get insider tips on big stock moves and act on them within seconds.",
+        "icon": "DeviceClockIcon"
+      },
+      {
+        "name": "Profit from your network",
+        "description": "Invite new insiders to get tips faster and beat even other Pocket users.",
+        "icon": "DeviceListIcon"
+      },
+      {
+        "name": "Encrypted and anonymized",
+        "description": "Cutting-edge security technology that even the NSA doesn't know about keeps you hidden.",
+        "icon": "DeviceLockIcon"
+      },
+      {
+        "name": "Portfolio tracking",
+        "description": "Watch your investments grow exponentially, leaving other investors in the dust.",
+        "icon": "DeviceChartIcon"
+      }
+    ]
+  },
+  {
+    "name": "call-to-action",
+    "title": "Get your first tips today",
+    "description": "It takes 30 seconds to sign up. Download the app and create an account today and we'll send you a tip guaranteed to double your first investment."
+  },
+  {
+    "name": "reviews",
+    "title": "Everyone is changing their life with Pocket.",
+    "description": "Thousands of people have doubled their net-worth in the last 30 days.",
+    "reviews": [
+      {
+        "title": "It really works.",
+        "body": "I downloaded Pocket today and turned $5000 into $25,000 in half an hour.",
+        "author": "CrazyInvestor",
+        "rating": 5
+      },
+      {
+        "title": "You need this app.",
+        "body": "I didn't understand the stock market at all before Pocket. I still don't, but at least I'm rich now.",
+        "author": "CluelessButRich",
+        "rating": 5
+      },
+      {
+        "title": "This shouldn't be legal.",
+        "body": "Pocket makes it so easy to win big in the stock market that I can't believe it's actually legal.",
+        "author": "LivingDaDream",
+        "rating": 5
+      },
+      {
+        "title": "Screw financial advisors.",
+        "body": "I barely made any money investing in mutual funds. With Pocket, I'm doubling my net-worth every single month.",
+        "author": "JordanBelfort1962",
+        "rating": 5
+      },
+      {
+        "title": "I love it!",
+        "body": "I started providing insider information myself and now I get new insider tips every 5 minutes. I don't even have time to act on all of them. New Lamborghini is being delivered next week!",
+        "author": "MrBurns",
+        "rating": 5
+      },
+      {
+        "title": "Too good to be true.",
+        "body": "I was making money so fast with Pocket that it felt like a scam. But I sold my shares and withdrew the money and it's really there, right in my bank account. This app is crazy!",
+        "author": "LazyRich99",
+        "rating": 5
+      },
+      {
+        "title": "Wish I could give 6 stars",
+        "body": "This is literally the most important app you will ever download in your life. Get on this before it's so popular that everyone else is getting these tips too.",
+        "author": "SarahLuvzCash",
+        "rating": 5
+      },
+      {
+        "title": "Bought an island.",
+        "body": "Yeah, you read that right. Want your own island too? Get Pocket.",
+        "author": "ScroogeMcduck",
+        "rating": 5
+      },
+      {
+        "title": "No more debt!",
+        "body": "After 2 weeks of trading on Pocket I was debt-free. Why did I even go to school at all when Pocket exists?",
+        "author": "BruceWayne",
+        "rating": 5
+      },
+      {
+        "title": "I'm 13 and I'm rich.",
+        "body": "I love that with Pocket's transaction anonymization I could sign up and start trading when I was 12 years old. I had a million dollars before I had armpit hair!",
+        "author": "RichieRich",
+        "rating": 5
+      },
+      {
+        "title": "Started an investment firm.",
+        "body": "I charge clients a 3% management fee and just throw all their investments into Pocket. Easy money!",
+        "author": "TheCountOfMonteChristo",
+        "rating": 5
+      },
+      {
+        "title": "It's like a superpower.",
+        "body": "Every tip Pocket has sent me has paid off. It's like playing Blackjack but knowing exactly what card is coming next!",
+        "author": "ClarkKent",
+        "rating": 5
+      },
+      {
+        "title": "Quit my job.",
+        "body": "I downloaded Pocket three days ago and quit my job today. I can't believe no one else thought to build a stock trading app that works this way!",
+        "author": "GeorgeCostanza",
+        "rating": 5
+      },
+      {
+        "title": "Don't download this app",
+        "body": "Unless you want to have the best life ever! I am literally writing this from a yacht.",
+        "author": "JeffBezos",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "name": "pricing",
+    "title": "Flat pricing, no management fees.",
+    "description": "Whether you're one person trying to get ahead or a big firm trying to take over the world, we've got a plan for you.",
+    "plans": [
+      {
+        "name": "Starter",
+        "featured": false,
+        "price": {
+          "Monthly": "$0",
+          "Annually": "$0"
+        },
+        "description": "You're new to investing but want to do it right. Get started for free.",
+        "button": {
+          "label": "Get started for free",
+          "href": "/register"
+        },
+        "features": [
+          "Commission-free trading",
+          "Multi-layered encryption",
+          "One tip every day",
+          "Invest up to $1,500 each month"
+        ],
+        "logomarkClassName": "fill-gray-300"
+      },
+      {
+        "name": "Investor",
+        "featured": false,
+        "price": {
+          "Monthly": "$7",
+          "Annually": "$70"
+        },
+        "description": "You've been investing for a while. Invest more and grow your wealth faster.",
+        "button": {
+          "label": "Subscribe",
+          "href": "/register"
+        },
+        "features": [
+          "Commission-free trading",
+          "Multi-layered encryption",
+          "One tip every hour",
+          "Invest up to $15,000 each month",
+          "Basic transaction anonymization"
+        ],
+        "logomarkClassName": "fill-gray-500"
+      },
+      {
+        "name": "VIP",
+        "featured": true,
+        "price": {
+          "Monthly": "$199",
+          "Annually": "$1,990"
+        },
+        "description": "You've got a huge amount of assets but it's not enough. To the moon.",
+        "button": {
+          "label": "Subscribe",
+          "href": "/register"
+        },
+        "features": [
+          "Commission-free trading",
+          "Multi-layered encryption",
+          "Real-time tip notifications",
+          "No investment limits",
+          "Advanced transaction anonymization",
+          "Automated tax-loss harvesting"
+        ],
+        "logomarkClassName": "fill-cyan-500"
+      }
+    ]
+  },
+  {
+    "name": "faqs",
+    "title": "Frequently asked questions",
+    "description": "If you have anything else you want to ask,",
+    "contactText": "reach out to us",
+    "contactUrl": "mailto:info@example.com",
+    "faqs": [
+      [
+        {
+          "question": "How do I know the tips are good?",
+          "answer": "Our whole business depends on our tips being good, so it's in our best interest that they are. The results of our customers speak for themselves, just trust us."
+        },
+        {
+          "question": "Isn't this insider trading?",
+          "answer": "Yes exactly. But at scale! Historically you could only make insider trades with knowledge from your direct network. Pocket brings you insider trading tips from people you don't even know."
+        },
+        {
+          "question": "But isn't insider trading illegal?",
+          "answer": "Here's the thing: you're the one doing the insider trading, not us. We're just giving you the tips and some tools to make trades. We're not doing anything wrong here."
+        }
+      ],
+      [
+        {
+          "question": "Do the people giving you tips realize what they are doing?",
+          "answer": "Again I would argue this isn't really our responsibility. People make their own choices. If they don't research the consequences that's on them, not on us."
+        },
+        {
+          "question": "Where is Pocket based?",
+          "answer": "Let's just say it's not somewhere where the SEC is going to find us."
+        },
+        {
+          "question": "Is there any age limit to trading on Pocket?",
+          "answer": "For our free plan, the age limit is based on the minimum age to trade in your country of residence. Our VIP plan uses advanced transaction anonymization though, so you can use that plan even if you're 9 years old. Or a dog."
+        }
+      ],
+      [
+        {
+          "question": "How did you get this on the App Store?",
+          "answer": "Honestly we were surprised too, but eventually we found out that the app reviewer found the app so compelling they approved it just so they could use it themselves."
+        },
+        {
+          "question": "How do I explain the money I withdraw from Pocket to the IRS?",
+          "answer": "This feels like one-hundred percent a you problem. Pocket is not responsible in any way for your tax returns."
+        },
+        {
+          "question": "How do I become an insider?",
+          "answer": "Contact us with some details about your industry and the type of access you have to apply for an insider account. Once approved, we'll send you a guide on collecting insider information without being detected at work."
+        }
+      ]
+    ]
+  },
+  {
+    "name": "footer",
+    "logomarkIcon": "LogomarkIcon",
+    "logoText": "Pocket",
+    "logoDescription": "Invest at the perfect time.",
+    "navLinks": [
+      ["Features", "/#features"],
+      ["Reviews", "/#reviews"],
+      ["Pricing", "/#pricing"],
+      ["FAQs", "/#faqs"]
+    ],
+    "qrCode": {
+      "icon": "QrCode",
+      "borderIcon": "QrCodeBorderIcon",
+      "alt": "QR Code",
+      "text": "Download the app",
+      "description": "Scan the QR code to download the app from the App Store."
+    },
+    "newsletter": {
+      "placeholder": "Email address",
+      "buttonText": "Join our newsletter",
+      "buttonTextMobile": "Join newsletter"
+    },
+    "copyright": "All rights reserved."
+  }
+]
