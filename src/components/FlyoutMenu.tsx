@@ -1,9 +1,8 @@
-import { Fragment } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import StackedLayout from "@/components/StackedLayout";
 
-export default function FlyoutMenu() {
+export default function FlyoutMenu({children}: {children: ReactNode}) {
   return (
     <Popover className="relative hidden lg:block">
       <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
@@ -23,7 +22,7 @@ export default function FlyoutMenu() {
         <Popover.Panel className="absolute -left-9 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
           <div
             className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl">
-            <StackedLayout />
+            {children}
           </div>
         </Popover.Panel>
       </Transition>

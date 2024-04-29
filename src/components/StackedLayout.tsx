@@ -1,15 +1,16 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { twJoin } from "tailwind-merge";
+import { type ReactNode, useState } from "react";
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+interface StackedLayoutProps {
+  tabs: string[];
+  children: ReactNode;
+}
 
-export default function StackedLayout() {
+export default function StackedLayout({tabs , children}: StackedLayoutProps) {
+  const [selectedTab, setSelectedTab] = useState<string>(tabs[0] ?? '');
+
   return (
     <>
       <div className="min-h-full">
@@ -20,19 +21,19 @@ export default function StackedLayout() {
                 <div className="flex h-16 justify-between">
                   <div className="flex">
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-                      {navigation.map((item) => (
+                      {tabs.map((tab, i) => (
                         <a
-                          key={item.name}
-                          href={item.href}
+                          key={i}
+                          onClick={()=>setSelectedTab(tab)}
                           className={twJoin(
-                            item.current
+                            tab === selectedTab
                               ? 'border-indigo-500 text-gray-900'
                               : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                            'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
+                            'cursor-pointer inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium'
                           )}
-                          aria-current={item.current ? 'page' : undefined}
+                          aria-current={tab === selectedTab ? 'page' : undefined}
                         >
-                          {item.name}
+                          {tab}
                         </a>
                       ))}
                     </div>
@@ -55,20 +56,20 @@ export default function StackedLayout() {
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 pb-3 pt-2">
-                  {navigation.map((item) => (
+                  {tabs.map((tab, i) => (
                     <Disclosure.Button
-                      key={item.name}
+                      onClick={()=>setSelectedTab(tab)}
+                      key={i}
                       as="a"
-                      href={item.href}
                       className={twJoin(
-                        item.current
+                        tab === selectedTab
                           ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
                           : 'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800',
-                        'block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
+                        'cursor-pointer block border-l-4 py-2 pl-3 pr-4 text-base font-medium'
                       )}
-                      aria-current={item.current ? 'page' : undefined}
+                      aria-current={tab === selectedTab ? 'page' : undefined}
                     >
-                      {item.name}
+                      {tab}
                     </Disclosure.Button>
                   ))}
                 </div>
@@ -78,14 +79,7 @@ export default function StackedLayout() {
         </Disclosure>
 
         <div className="py-10">
-          <header>
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900">Dashboard</h1>
-            </div>
-          </header>
-          <main>
-            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{/* Your content */}</div>
-          </main>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>
         </div>
       </div>
     </>

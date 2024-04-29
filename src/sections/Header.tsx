@@ -11,6 +11,7 @@ import React from "react";
 import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
 import ImageRenderer from "@/components/ImageRenderer";
 import FlyoutMenu from "@/components/FlyoutMenu";
+import StackedLayout from "@/components/StackedLayout";
 
 function MobileNavLink(
   props: Omit<
@@ -113,7 +114,11 @@ export function Header({ data }: { data: HeaderData }) {
                 </>
               )}
             </Popover>
-            <FlyoutMenu />
+            <FlyoutMenu>
+              <StackedLayout tabs={['Europe','America','Oceania','Asia','Africa','Global']}>
+                <div>Hello</div>
+              </StackedLayout>
+            </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}
             </Button>
