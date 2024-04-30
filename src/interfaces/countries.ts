@@ -1,4 +1,4 @@
-enum CountryAlpha2 {
+export enum LocaleToCountry {
   AF = "Afghanistan",
   AX = "Åland Islands",
   AL = "Albania",
@@ -109,7 +109,7 @@ export interface Country {
   id: number;
   name: string;
   region: Regions
-  'alpha-2': CountryAlpha2;
+  'alpha-2': LocaleToCountry;
   'alpha-3': string;
   iso_3166_2: string;
   'sub-region': SubRegions;

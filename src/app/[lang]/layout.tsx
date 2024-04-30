@@ -16,14 +16,24 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+interface Language {
+  lang: string;
+}
+
+export async function generateStaticParams() {
+  return [{ lang: 'en-US' }, { lang: 'de' }]
+}
+
 export default function RootLayout({
   children,
+  params
 }: {
   children: ReactNode;
+  params: Language
 }) {
   return (
-    <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
-      <body>{children}</body>
+    <html lang={params.lang} className={clsx('bg-gray-50 antialiased', inter.variable)}>
+    <body>{children}</body>
     </html>
   );
 }
