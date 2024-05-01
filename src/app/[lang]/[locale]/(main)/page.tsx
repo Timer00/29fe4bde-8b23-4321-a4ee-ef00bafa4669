@@ -1,4 +1,4 @@
-import pageData from '@/contents/investment.json'; // Look into moving it to the same folder as this file as content.json
+import pageData from '@/app/[lang]/[locale]/(main)/content.json';
 import SectionRenderer, { type Block } from "@/sections/SectionRenderer";
 
 type Section = Block
