@@ -21,8 +21,10 @@ interface Language {
 }
 
 export async function generateStaticParams() {
-  return [{ lang: 'en-US' }, { lang: 'de' }]
+  return [{ lang: 'en' }, { lang: 'de' }]
 }
+//TODO: Perhaps generate the paths first and then work on the middleware.
+// also render the countries in the header.
 
 export default function RootLayout({
   children,
