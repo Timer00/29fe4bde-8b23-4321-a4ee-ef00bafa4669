@@ -1,8 +1,6 @@
 import { Hero } from './Hero'
 
-import { Footer } from './Footer'
 import React, { type FC } from "react";
-import { Header } from "@/sections/Header";
 import { PrimaryFeatures } from "@/sections/PrimaryFeatures";
 import { SecondaryFeatures } from "@/sections/SecondaryFeatures";
 import { CallToAction } from "@/sections/CallToAction";
@@ -20,7 +18,6 @@ import { Faqs } from "@/sections/Faqs";
 /* MAP containing the names of the sections coming from the Generator and their relation to the existing section components
  * in the code. This list doesn't affect the order. */
 export const sections = {
-  'header': Header,
   'hero': Hero,
   'primary-features': PrimaryFeatures,
   'secondary-features': SecondaryFeatures,
@@ -28,7 +25,6 @@ export const sections = {
   'reviews': Reviews,
   'pricing': Pricing,
   'faqs': Faqs,
-  'footer': Footer
 }
 
 export type SectionNames = keyof typeof sections;
