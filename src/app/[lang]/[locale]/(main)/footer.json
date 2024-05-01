@@ -1,0 +1,25 @@
+{
+  "name": "footer",
+  "logomarkIcon": "LogomarkIcon",
+  "logoText": "Pocket",
+  "logoDescription": "Invest at the perfect time.",
+  "navLinks": [
+    ["Features", "/#features"],
+    ["Reviews", "/#reviews"],
+    ["Pricing", "/#pricing"],
+    ["FAQs", "/#faqs"]
+  ],
+  "qrCode": {
+    "icon": "QrCode",
+    "borderIcon": "QrCodeBorderIcon",
+    "alt": "QR Code",
+    "text": "Download the app",
+    "description": "Scan the QR code to download the app from the App Store."
+  },
+  "newsletter": {
+    "placeholder": "Email address",
+    "buttonText": "Join our newsletter",
+    "buttonTextMobile": "Join newsletter"
+  },
+  "copyright": "All rights reserved."
+}

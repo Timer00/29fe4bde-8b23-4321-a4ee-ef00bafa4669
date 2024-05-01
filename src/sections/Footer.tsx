@@ -7,7 +7,7 @@ import { NavLinks } from '@/components/NavLinks'
 import React from "react";
 import ImageRenderer from "@/components/ImageRenderer";
 
-type FooterData = {
+export interface FooterData {
   name: string;
   logomarkIcon: string;
   logoText: string;

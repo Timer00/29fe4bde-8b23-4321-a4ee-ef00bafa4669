@@ -28,7 +28,7 @@ function MobileNavLink(
   )
 }
 
-type HeaderData = {
+export interface HeaderData {
   name: string;
   logoIcon: string;
   navLinks: LinkFormat[];
@@ -115,7 +115,7 @@ export function Header({ data }: { data: HeaderData }) {
               )}
             </Popover>
             <FlyoutMenu>
-              <StackedLayout tabs={['Europe','America','Oceania','Asia','Africa','Global']}>
+              <StackedLayout tabs={['Europe', 'America', 'Oceania', 'Asia', 'Africa', 'Global']}>
                 <div>Hello</div>
               </StackedLayout>
             </FlyoutMenu>

@@ -1,35 +1,5 @@
 [
   {
-    "name": "header",
-    "logoIcon": "LogoWithLogomark",
-    "navLinks": [
-      ["Features", "#features"],
-      ["Reviews", "#reviews"],
-      ["Pricing", "#pricing"],
-      ["FAQs", "#faqs"]
-    ],
-    "mobileNavLinks": [
-      {
-        "href": "/#features",
-        "label": "Features"
-      },
-      {
-        "href": "/#reviews",
-        "label": "Reviews"
-      },
-      {
-        "href": "/#pricing",
-        "label": "Pricing"
-      },
-      {
-        "href": "/#faqs",
-        "label": "FAQs"
-      }
-    ],
-    "loginText": "Log in",
-    "downloadText": "Download the app"
-  },
-  {
     "name": "hero",
     "title": "Invest at the perfect time.",
     "subtitle": "By leveraging insights from our network of industry insiders, you'll know exactly when to buy to maximize profit, and exactly when to sell to avoid painful losses.",
@@ -355,30 +325,5 @@
         }
       ]
     ]
-  },
-  {
-    "name": "footer",
-    "logomarkIcon": "LogomarkIcon",
-    "logoText": "Pocket",
-    "logoDescription": "Invest at the perfect time.",
-    "navLinks": [
-      ["Features", "/#features"],
-      ["Reviews", "/#reviews"],
-      ["Pricing", "/#pricing"],
-      ["FAQs", "/#faqs"]
-    ],
-    "qrCode": {
-      "icon": "QrCode",
-      "borderIcon": "QrCodeBorderIcon",
-      "alt": "QR Code",
-      "text": "Download the app",
-      "description": "Scan the QR code to download the app from the App Store."
-    },
-    "newsletter": {
-      "placeholder": "Email address",
-      "buttonText": "Join our newsletter",
-      "buttonTextMobile": "Join newsletter"
-    },
-    "copyright": "All rights reserved."
   }
 ]
