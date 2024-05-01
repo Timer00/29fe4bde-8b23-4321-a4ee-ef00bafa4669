@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { type ReactNode } from "react";
 import clsx from "clsx";
+import { type Params } from "@/app/[lang]/[locale]/(main)/page";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,22 +17,12 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-interface Language {
-  lang: string;
-}
-
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'de' }]
-}
-//TODO: Perhaps generate the paths first and then work on the middleware.
-// also render the countries in the header.
-
 export default function RootLayout({
   children,
   params
 }: {
   children: ReactNode;
-  params: Language
+  params: Params
 }) {
   return (
     <html lang={params.lang} className={clsx('bg-gray-50 antialiased', inter.variable)}>
