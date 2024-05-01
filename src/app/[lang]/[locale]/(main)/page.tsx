@@ -27,7 +27,6 @@ export async function generateStaticParams() {
 }
 
 export default function Home({params}: {params: Params}) {
-  console.log(params);
   return (
     <>
       {pageData?.map((section, i) => SectionRenderer(section as Section, i))}
