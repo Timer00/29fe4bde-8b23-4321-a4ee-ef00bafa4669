@@ -27,10 +27,10 @@ const config = {
                 resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
                 use: [{
                     loader: '@svgr/webpack',
-                    // This is to fix some malformed SVGs
                     options: {
                         svgoConfig: {
                             plugins: [
+                                // These ensure we can handle multiple SVGs in the same page without id conflicts
                                 {
                                     name: 'cleanupIds',
                                     active: false
@@ -40,6 +40,7 @@ const config = {
                                     active: true
                                 },
                                 {
+                                    // This is to fix some malformed SVGs
                                     name: 'removeDimensions',
                                     active: true
                                 }

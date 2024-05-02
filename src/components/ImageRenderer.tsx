@@ -7,7 +7,7 @@ import LogoHuffpost from '@/images/logos/huffpost.svg'
 import LogoTechcrunch from '@/images/logos/techcrunch.svg'
 import LogoWired from '@/images/logos/wired.svg'
 import QrCode from '@/images/qr-code.svg'
-import React, { type FC, SVGProps } from "react";
+import React, { type FC, type SVGProps } from "react";
 import {
   CheckIcon,
   ChevronUpIcon,
@@ -70,7 +70,7 @@ const svgs = {
 type FileNames = keyof typeof svgs;
 
 interface ImageRendererProps {
-  name: FileNames;
+  name: string;
   index?: number | string;
 
   [key: string]: unknown;
@@ -78,7 +78,7 @@ interface ImageRendererProps {
 
 // Renders images(svgs, icons..) from a string alias.
 export default function ImageRenderer({ name, index, ...props }: ImageRendererProps) {
-  const component: FC<SVGProps<SVGElement>> = svgs[name];
+  const component: FC<SVGProps<SVGElement>> = svgs[name as FileNames];
 
   if (typeof component !== 'undefined') {
     return React.createElement(component as FC<typeof props>, {

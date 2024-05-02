@@ -79,7 +79,7 @@ export default function StackedLayout({tabs , children}: StackedLayoutProps) {
         </Disclosure>
 
         <div className="py-10">
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 flex-wrap flex">{children}</div>
         </div>
       </div>
     </>

@@ -26,7 +26,7 @@ export interface FooterData {
     buttonTextMobile: string;
   };
   copyright: string;
-};
+}
 
 export function Footer({ data }: { data: FooterData }) {
   const {

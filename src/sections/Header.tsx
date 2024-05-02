@@ -12,6 +12,7 @@ import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
 import ImageRenderer from "@/components/ImageRenderer";
 import FlyoutMenu from "@/components/FlyoutMenu";
 import StackedLayout from "@/components/StackedLayout";
+import { type Country } from "@/interfaces/countries";
 
 function MobileNavLink(
   props: Omit<
@@ -39,10 +40,16 @@ export interface HeaderData {
   }[];
   loginText: string;
   downloadText: string;
-};
+}
 
-export function Header({ data }: { data: HeaderData }) {
+interface HeaderProps {
+  data: HeaderData;
+  countries: Country[]
+}
+
+export function Header({ data, countries }: HeaderProps) {
   const { logoIcon, navLinks, mobileNavLinks, loginText, downloadText } = data;
+
   return (
     <header>
       <nav>
@@ -116,7 +123,16 @@ export function Header({ data }: { data: HeaderData }) {
             </Popover>
             <FlyoutMenu>
               <StackedLayout tabs={['Europe', 'America', 'Oceania', 'Asia', 'Africa', 'Global']}>
-                <div>Hello</div>
+                {!countries ?
+                  'Unable to get list of countries.'
+                  :
+                  countries.map((country, i) => (
+                    <div key={i} className="w-1/3 flex items-center space-x-2 bg-gray-50 text-gray-600">
+                      <ImageRenderer className="w-6 h-4 rounded" name={country["alpha-2"]} />
+                      <span>{country.name}</span>
+                    </div>
+                  ))
+                }
               </StackedLayout>
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
