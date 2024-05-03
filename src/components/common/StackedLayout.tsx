@@ -3,14 +3,19 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { twJoin } from "tailwind-merge";
 import React, { type Dispatch, type ReactNode, type SetStateAction } from "react";
 
-interface StackedLayoutProps {
-  tabs: string[];
+interface StackedLayoutProps<T extends string> {
+  tabs: T[];
   children: ReactNode;
-  selectedTab: string;
-  setSelectedTab: Dispatch<SetStateAction<string>>;
+  selectedTab: T;
+  setSelectedTab: Dispatch<SetStateAction<T>>;
 }
 
-export default function StackedLayout({tabs, selectedTab, setSelectedTab , children}: StackedLayoutProps) {
+export default function StackedLayout<T extends string>({
+  tabs,
+  selectedTab,
+  setSelectedTab,
+  children,
+}: StackedLayoutProps<T>) {
 
   return (
     <>

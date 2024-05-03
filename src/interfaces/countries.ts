@@ -119,3 +119,11 @@ export interface Country {
   'intermediate-region': IntermediateRegion;
   'intermediate-region-code': string;
 }
+
+type Countries = {
+  [key in LocaleToCountry]: Country
+}
+
+export type Regions = {
+  [key in Region]: Countries
+}

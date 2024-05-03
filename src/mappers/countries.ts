@@ -1,5 +1,5 @@
 // Helper function to get the locale code from the country name
-import { type Country, LocaleToCountry, type Region } from "@/interfaces/countries";
+import { type Country, LocaleToCountry, type Region, type Regions } from "@/interfaces/countries";
 
 const getLocaleCodeFromName = (countryName: string): string | undefined => {
   const entries = Object.entries(LocaleToCountry);
@@ -14,6 +14,30 @@ export const mapCountriesToLocales = (countries: Country[]): (Country & { locale
     localeCode: getLocaleCodeFromName(country.name)
   }));
 };
+
+export const mapCountriesToRegions = (countries: Country[]): Regions => {
+  return countries.reduce((state: Regions, country: Country) => {
+    let { region } = country;
+    const { name } = country;
+    if (region === '') region = 'Global';
+    if (Object.keys(state).some(v => v === region)) {
+      return {
+        ...state,
+        [region]: {
+          ...state[region],
+          [name]: country
+        }
+      }
+    }
+
+    return {
+      ...state,
+      [region]: {
+        [name]: country
+      }
+    }
+  }, {} as Regions)
+}
 
 export const getRegionsFromCountries = (countries: Country[]): Region[] => {
   return countries.reduce((state, { region }) => {
