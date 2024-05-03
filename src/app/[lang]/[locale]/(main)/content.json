@@ -24,8 +24,7 @@
         },
         {
           "name": "CNN",
-          "logo": "LogoCnn",
-          "className": "hidden xl:block"
+          "logo": "LogoCnn"
         },
         {
           "name": "BBC",

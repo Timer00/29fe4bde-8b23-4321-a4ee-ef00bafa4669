@@ -140,7 +140,7 @@ export function Hero({ data }: {data: HeroData}) {
             >
               {featuredIn.logos.map(({ name, logo, className = '' }, i: number) => (
                 <li key={name} className={clsx('flex', className)}>
-                  <ImageRenderer name={logo} index={i}/>
+                  <ImageRenderer name={logo} index={i} className="w-24"/>
                 </li>
               ))}
             </ul>
