@@ -4,15 +4,16 @@ import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { type LinkFormat, NavLinks } from '@/components/NavLinks'
+import { Button } from '@/components/common/Button'
+import { Container } from '@/components/common/Container'
+import { type LinkFormat, NavLinks } from '@/components/common/NavLinks'
 import React from "react";
 import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
-import ImageRenderer from "@/components/ImageRenderer";
-import FlyoutMenu from "@/components/FlyoutMenu";
-import StackedLayout from "@/components/StackedLayout";
-import { type Country } from "@/interfaces/countries";
+import ImageRenderer from "@/components/common/ImageRenderer";
+import FlyoutMenu from "@/components/common/FlyoutMenu";
+import StackedLayout from "@/components/common/StackedLayout";
+import { type Country, type LocaleToCountry, type Region } from "@/interfaces/countries";
+import CountryPicker from "@/components/feature/internationalization/CountryPicker";
 
 function MobileNavLink(
   props: Omit<
@@ -122,18 +123,7 @@ export function Header({ data, countries }: HeaderProps) {
               )}
             </Popover>
             <FlyoutMenu>
-              <StackedLayout tabs={['Europe', 'America', 'Oceania', 'Asia', 'Africa', 'Global']}>
-                {!countries ?
-                  'Unable to get list of countries.'
-                  :
-                  countries.map((country, i) => (
-                    <div key={i} className="w-1/3 flex items-center space-x-2 bg-gray-50 text-gray-600">
-                      <ImageRenderer className="w-6 h-4 rounded" name={country["alpha-2"]} />
-                      <span>{country.name}</span>
-                    </div>
-                  ))
-                }
-              </StackedLayout>
+              <CountryPicker countries={countries}/>
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}

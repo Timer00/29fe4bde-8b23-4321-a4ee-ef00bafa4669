@@ -101,14 +101,14 @@ export enum LocaleToCountry {
   HN = "Honduras",
 }
 
-type Regions = "Africa" | "Americas" | "Asia" | "Europe" | "Oceania" | "";
+export type Region = "Africa" | "Americas" | "Asia" | "Europe" | "Oceania" | "Global" | "";
 type SubRegions = "Australia and New Zealand" | "Caribbean" | "Central America" | "Channel Islands" | "Eastern Africa" | "Eastern Asia" | "Eastern Europe" | "Latin America and the Caribbean" | "Melanesia" | "Micronesia" | "Middle Africa" | "Northern Africa" | "Northern America" | "Northern Europe" | "Polynesia" | "South America" | "South-eastern Asia" | "Southern Asia" | "Southern Europe" | "Sub-Saharan Africa" | "Western Africa" | "Western Asia" | "Western Europe" | "";
 type IntermediateRegion = "Caribbean" | "Central America" | "Channel Islands" | "Eastern Africa" | "Middle Africa" | "South America" | "Southern Africa" | "Western Africa" | "";
 
 export interface Country {
   id: number;
   name: string;
-  region: Regions
+  region: Region
   'alpha-2': LocaleToCountry;
   'alpha-3': string;
   iso_3166_2: string;

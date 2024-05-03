@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { useInView } from 'framer-motion'
 
-import { Container } from '@/components/Container'
+import { Container } from '@/components/common/Container'
 import { StarIcon } from "@/images/icons/icons";
 
 interface Review {

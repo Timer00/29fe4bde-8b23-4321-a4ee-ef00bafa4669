@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { CirclesBackground } from '@/components/CirclesBackground'
+import { CirclesBackground } from '@/components/common/CirclesBackground'
 import { LogoWithLogomark } from "@/images/icons/icons";
 
 export function AuthLayout({
@@ -15,7 +15,7 @@ export function AuthLayout({
   return (
     <main className="flex min-h-full overflow-hidden pt-16 sm:py-28">
       <div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
-        <Link href="/" aria-label="Home">
+        <Link href="/public" aria-label="Home">
           <LogoWithLogomark className="mx-auto h-10 w-auto" />
         </Link>
         <div className="relative mt-12 sm:mt-16">

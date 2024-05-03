@@ -1,6 +1,6 @@
-import { AppStoreLink } from '@/components/AppStoreLink'
-import { CircleBackground } from '@/components/CircleBackground'
-import { Container } from '@/components/Container'
+import { AppStoreLink } from '@/components/common/AppStoreLink'
+import { CircleBackground } from '@/components/common/CircleBackground'
+import { Container } from '@/components/common/Container'
 
 interface CallToActionData {
   title: string;

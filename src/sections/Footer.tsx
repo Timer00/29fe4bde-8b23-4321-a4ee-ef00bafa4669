@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { TextField } from '@/components/Fields'
-import { NavLinks } from '@/components/NavLinks'
+import { Button } from '@/components/common/Button'
+import { Container } from '@/components/common/Container'
+import { TextField } from '@/components/common/Fields'
+import { NavLinks } from '@/components/common/NavLinks'
 import React from "react";
-import ImageRenderer from "@/components/ImageRenderer";
+import ImageRenderer from "@/components/common/ImageRenderer";
 
 export interface FooterData {
   name: string;

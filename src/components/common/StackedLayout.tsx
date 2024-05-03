@@ -1,15 +1,16 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { twJoin } from "tailwind-merge";
-import { type ReactNode, useState } from "react";
+import React, { type Dispatch, type ReactNode, type SetStateAction } from "react";
 
 interface StackedLayoutProps {
   tabs: string[];
   children: ReactNode;
+  selectedTab: string;
+  setSelectedTab: Dispatch<SetStateAction<string>>;
 }
 
-export default function StackedLayout({tabs , children}: StackedLayoutProps) {
-  const [selectedTab, setSelectedTab] = useState<string>(tabs[0] ?? '');
+export default function StackedLayout({tabs, selectedTab, setSelectedTab , children}: StackedLayoutProps) {
 
   return (
     <>
