@@ -22,7 +22,7 @@ export default function CountryPicker({ countries }: CountryPickerProps) {
         'Unable to get list of countries.'
         :
         Object.keys(selectedCountries).map((country, i) => (
-          <div key={i} className="w-1/3 flex items-center space-x-2 bg-gray-50 text-gray-600">
+          <div key={i} className="w-full lg:w-1/3 flex items-center space-x-2 text-gray-600">
             <ImageRenderer className="w-6 h-4 rounded"
                            name={selectedCountries[country as LocaleToCountry]["alpha-2"]} />
             <span>{country}</span>

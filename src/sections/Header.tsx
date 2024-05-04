@@ -11,8 +11,7 @@ import React from "react";
 import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
 import ImageRenderer from "@/components/common/ImageRenderer";
 import FlyoutMenu from "@/components/common/FlyoutMenu";
-import StackedLayout from "@/components/common/StackedLayout";
-import { type Country, type LocaleToCountry, type Region } from "@/interfaces/countries";
+import { type Country } from "@/interfaces/countries";
 import CountryPicker from "@/components/feature/internationalization/CountryPicker";
 
 function MobileNavLink(
@@ -34,11 +33,6 @@ export interface HeaderData {
   name: string;
   logoIcon: string;
   navLinks: LinkFormat[];
-  //TODO: Ensure both are following same format.
-  mobileNavLinks: {
-    href: string;
-    label: string;
-  }[];
   loginText: string;
   downloadText: string;
 }
@@ -49,7 +43,7 @@ interface HeaderProps {
 }
 
 export function Header({ data, countries }: HeaderProps) {
-  const { logoIcon, navLinks, mobileNavLinks, loginText, downloadText } = data;
+  const { logoIcon, navLinks, loginText, downloadText } = data;
 
   return (
     <header>
@@ -103,9 +97,9 @@ export function Header({ data, countries }: HeaderProps) {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            {mobileNavLinks.map((link) => (
-                              <MobileNavLink key={link.href} href={link.href}>
-                                {link.label}
+                            {navLinks.map(([label, href]) => (
+                              <MobileNavLink key={href} href={href}>
+                                {label}
                               </MobileNavLink>
                             ))}
                           </div>
@@ -115,6 +109,7 @@ export function Header({ data, countries }: HeaderProps) {
                             </Button>
                             <Button href="#">{downloadText}</Button>
                           </div>
+                          <CountryPicker countries={countries}/>
                         </Popover.Panel>
                       </>
                     )}

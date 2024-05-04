@@ -7,24 +7,6 @@
     ["Pricing", "#pricing"],
     ["FAQs", "#faqs"]
   ],
-  "mobileNavLinks": [
-    {
-      "href": "/#features",
-      "label": "Features"
-    },
-    {
-      "href": "/#reviews",
-      "label": "Reviews"
-    },
-    {
-      "href": "/#pricing",
-      "label": "Pricing"
-    },
-    {
-      "href": "/#faqs",
-      "label": "FAQs"
-    }
-  ],
   "loginText": "Log in",
   "downloadText": "Download the app"
 }
