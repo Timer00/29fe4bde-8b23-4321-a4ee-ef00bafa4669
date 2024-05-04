@@ -1,6 +1,11 @@
 // Helper function to get the locale code from the country name
 import { type Country, LocaleToCountry, type Region, type Regions } from "@/interfaces/countries";
 
+export const getRegionFromLocale = (countries: Country[], locale: string): Region | undefined => {
+  const country = countries.find(country => country['alpha-2'] as string === locale.toUpperCase());
+  return country ? country.region : undefined;
+};
+
 const getLocaleCodeFromName = (countryName: string): string | undefined => {
   const entries = Object.entries(LocaleToCountry);
   const foundEntry = entries.find(([code, name]) => name === countryName);
