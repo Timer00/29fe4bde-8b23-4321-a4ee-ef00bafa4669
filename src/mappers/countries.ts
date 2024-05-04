@@ -14,17 +14,17 @@ const getLocaleCodeFromName = (countryName: string): string | undefined => {
 
 // Function to map country data with locale codes
 export const mapCountriesToLocales = (countries: Country[]): (Country & { localeCode?: string })[] => {
-  return countries.map(country => ({
+  return countries.map(({ region, ...country }) => ({
     ...country,
+    region: region === "" ? 'Global' : region,
     localeCode: getLocaleCodeFromName(country.name)
   }));
 };
 
 export const mapCountriesToRegions = (countries: Country[]): Regions => {
   return countries.reduce((state: Regions, country: Country) => {
-    let { region } = country;
+    const { region } = country;
     const { name } = country;
-    if (region === '') region = 'Global';
     if (Object.keys(state).some(v => v === region)) {
       return {
         ...state,
@@ -46,7 +46,6 @@ export const mapCountriesToRegions = (countries: Country[]): Regions => {
 
 export const getRegionsFromCountries = (countries: Country[]): Region[] => {
   return countries.reduce((state, { region }) => {
-    if (region === '') region = 'Global'
     if (state.some(value => value === region))
       return [...state];
 
