@@ -2,7 +2,6 @@ import { Disclosure } from '@headlessui/react'
 import { twJoin } from "tailwind-merge";
 import React, { type Dispatch, type ReactNode, type SetStateAction } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
 
 interface StackedLayoutProps<T extends string> {
   tabs: T[];
@@ -82,7 +81,7 @@ export default function StackedLayout<T extends string>({
           )}
         </Disclosure>
 
-        <div className={`py-10 hidden lg:block`}>
+        <div className="py-5 hidden lg:block">
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 flex-wrap flex">{children}</div>
         </div>
       </div>
