@@ -39,6 +39,7 @@ export default function SectionRenderer (block: Block, key: number) {
   const component = sections[block.name]
 
   if (typeof component !== 'undefined') {
+    //TODO: Fix type issue
     return React.createElement(component as FC<{data: Block}>, {
       data: block,
       key

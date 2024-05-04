@@ -8,6 +8,7 @@ export default function FlyoutMenu({ children }: { children: ReactNode }) {
       {({ open }) => (
         <>
           <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            {/* TODO: Make this come from props and be the selected country flag */}
             <span>Country</span>
             <ChevronDownIcon className={`h-5 w-5 ${open ? 'rotate-180 transform' : ''}`} aria-hidden="true" />
           </Popover.Button>
