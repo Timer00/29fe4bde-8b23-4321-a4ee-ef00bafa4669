@@ -52,19 +52,19 @@
     "description": "Pocket was built for investors like you who play by their own rules and aren't going to let SEC regulations get in the way of their dreams. If other investing tools are afraid to build it, Pocket has it.",
     "features": [
       {
-        "name": "Invite friends for better returns",
+        "label": "Invite friends for better returns",
         "description": "For every friend you invite to Pocket, you get insider notifications 5 seconds sooner. And it's 10 seconds if you invite an insider.",
         "icon": "DeviceUserIcon",
         "screen": "InviteScreen"
       },
       {
-        "name": "Notifications on stock dips",
+        "label": "Notifications on stock dips",
         "description": "Get a push notification every time we find out something that's going to lower the share price on your holdings so you can sell before the information hits the public markets.",
         "icon": "DeviceNotificationIcon",
         "screen": "StocksScreen"
       },
       {
-        "name": "Invest what you want",
+        "label": "Invest what you want",
         "description": "We hide your stock purchases behind thousands of anonymous trading accounts, so suspicious activity can never be traced back to you.",
         "icon": "DeviceTouchIcon",
         "screen": "InvestScreen"
@@ -77,32 +77,32 @@
     "description": "With typical market returns, you have to start young to secure your future. With Pocket, it's never too late to build your nest egg.",
     "features": [
       {
-        "name": "Invest any amount",
+        "label": "Invest any amount",
         "description": "Whether it's $1 or $1,000,000, we can put your money to work for you.",
         "icon": "DeviceArrowIcon"
       },
       {
-        "name": "Build a balanced portfolio",
+        "label": "Build a balanced portfolio",
         "description": "Invest in different industries to find the most opportunities to win huge.",
         "icon": "DeviceCardsIcon"
       },
       {
-        "name": "Trade in real-time",
+        "label": "Trade in real-time",
         "description": "Get insider tips on big stock moves and act on them within seconds.",
         "icon": "DeviceClockIcon"
       },
       {
-        "name": "Profit from your network",
+        "label": "Profit from your network",
         "description": "Invite new insiders to get tips faster and beat even other Pocket users.",
         "icon": "DeviceListIcon"
       },
       {
-        "name": "Encrypted and anonymized",
+        "label": "Encrypted and anonymized",
         "description": "Cutting-edge security technology that even the NSA doesn't know about keeps you hidden.",
         "icon": "DeviceLockIcon"
       },
       {
-        "name": "Portfolio tracking",
+        "label": "Portfolio tracking",
         "description": "Watch your investments grow exponentially, leaving other investors in the dust.",
         "icon": "DeviceChartIcon"
       }
@@ -210,7 +210,7 @@
     "description": "Whether you're one person trying to get ahead or a big firm trying to take over the world, we've got a plan for you.",
     "plans": [
       {
-        "name": "Starter",
+        "label": "Starter",
         "featured": false,
         "price": {
           "Monthly": "$0",
@@ -230,7 +230,7 @@
         "logomarkClassName": "fill-gray-300"
       },
       {
-        "name": "Investor",
+        "label": "Investor",
         "featured": false,
         "price": {
           "Monthly": "$7",
@@ -251,7 +251,7 @@
         "logomarkClassName": "fill-gray-500"
       },
       {
-        "name": "VIP",
+        "label": "VIP",
         "featured": true,
         "price": {
           "Monthly": "$199",

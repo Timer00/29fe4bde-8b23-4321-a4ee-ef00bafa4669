@@ -36,13 +36,6 @@ interface CustomAnimationProps {
   changeCount: number
 }
 
-interface Feature {
-  name: string;
-  description: string;
-  icon: string;
-  screen: keyof typeof screens;
-}
-
 const headerAnimation: Variants = {
   initial: { opacity: 0, transition: { duration: 0.3 } },
   animate: { opacity: 1, transition: { duration: 0.3, delay: 0.3 } },
@@ -305,6 +298,13 @@ function usePrevious<T>(value: T) {
   return ref.current
 }
 
+interface Feature {
+  label: string;
+  description: string;
+  icon: string;
+  screen: keyof typeof screens;
+}
+
 function FeaturesDesktop({ features }: {features: Feature[]}) {
   const [changeCount, setChangeCount] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -331,7 +331,7 @@ function FeaturesDesktop({ features }: {features: Feature[]}) {
       <Tab.List className="relative z-10 order-last col-span-6 space-y-6">
         {features.map((feature, featureIndex) => (
           <div
-            key={feature.name}
+            key={feature.label}
             className="relative rounded-2xl transition-colors hover:bg-gray-800/30"
           >
             {featureIndex === selectedIndex && (
@@ -346,7 +346,7 @@ function FeaturesDesktop({ features }: {features: Feature[]}) {
               <h3 className="mt-6 text-lg font-semibold text-white">
                 <Tab className="text-left ui-not-focus-visible:outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
-                  {feature.name}
+                  {feature.label}
                 </Tab>
               </h3>
               <p className="mt-2 text-sm text-gray-400">
@@ -370,7 +370,7 @@ function FeaturesDesktop({ features }: {features: Feature[]}) {
                 selectedIndex === featureIndex ? (
                   <Tab.Panel
                     static
-                    key={feature.name + changeCount}
+                    key={feature.label + changeCount}
                     className="col-start-1 row-start-1 flex focus:outline-offset-[32px] ui-not-focus-visible:outline-none"
                   >
                     {screens[feature.screen]({animated: true, custom: { isForwards, changeCount }})}
@@ -445,7 +445,7 @@ function FeaturesMobile({ features }: {features: Feature[]}) {
               <div className="absolute inset-x-0 bottom-0 bg-gray-800/95 p-6 backdrop-blur sm:p-10">
                 <ImageRenderer name={feature.icon} index={featureIndex} className="h-8 w-8" />
                 <h3 className="mt-6 text-sm font-semibold text-white sm:text-lg">
-                  {feature.name}
+                  {feature.label}
                 </h3>
                 <p className="mt-2 text-sm text-gray-400">
                   {feature.description}

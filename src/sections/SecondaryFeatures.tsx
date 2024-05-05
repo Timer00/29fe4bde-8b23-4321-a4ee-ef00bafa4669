@@ -2,7 +2,7 @@ import { Container } from '@/components/common/Container'
 import ImageRenderer from "@/components/common/ImageRenderer";
 
 interface Feature {
-  name: string;
+  label: string;
   description: string;
   icon: string
 }
@@ -35,12 +35,12 @@ export function SecondaryFeatures({ data }: {data: SecondaryFeaturesData}) {
         >
           {features.map((feature: Feature, i: number) => (
             <li
-              key={feature.name}
+              key={feature.label}
               className="rounded-2xl border border-gray-200 p-8"
             >
               <ImageRenderer name={feature.icon} index={i} className="h-8 w-8" />
               <h3 className="mt-6 font-semibold text-gray-900">
-                {feature.name}
+                {feature.label}
               </h3>
               <p className="mt-2 text-gray-700">{feature.description}</p>
             </li>

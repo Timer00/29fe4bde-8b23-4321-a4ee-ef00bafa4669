@@ -9,7 +9,7 @@ import { Container } from '@/components/common/Container'
 import { CheckIcon, LogomarkIcon } from "@/images/icons/icons";
 
 interface PlanData {
-  name: string
+  label: string
   price: {
     Monthly: string
     Annually: string
@@ -26,7 +26,7 @@ interface PlanData {
 }
 
 function Plan({
-  name,
+  label,
   price,
   description,
   button,
@@ -49,7 +49,7 @@ function Plan({
         )}
       >
         <LogomarkIcon className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
-        <span className="ml-4">{name}</span>
+        <span className="ml-4">{label}</span>
       </h3>
       <p
         className={clsx(
@@ -119,7 +119,7 @@ function Plan({
         href={button.href}
         color={featured ? 'cyan' : 'gray'}
         className="mt-6"
-        aria-label={`Get started with the ${name} plan for ${price.Monthly}`}
+        aria-label={`Get started with the ${label} plan for ${price.Monthly}`}
       >
         {button.label}
       </Button>
@@ -136,6 +136,7 @@ type PricingData = {
 
 export function Pricing({ data }: { data: PricingData }) {
   const { title, description, plans } = data;
+  // TODO: Add activePeriod to content JSON.
   const [activePeriod, setActivePeriod] = useState<'Monthly' | 'Annually'>(
     'Monthly',
   );
@@ -205,7 +206,7 @@ export function Pricing({ data }: { data: PricingData }) {
         <div
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-10 sm:mt-20 lg:max-w-none lg:grid-cols-3">
           {plans.map((plan) => (
-            <Plan key={plan.name} {...plan} activePeriod={activePeriod} />
+            <Plan key={plan.label} {...plan} activePeriod={activePeriod} />
           ))}
         </div>
       </Container>
