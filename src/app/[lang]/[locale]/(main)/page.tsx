@@ -8,6 +8,8 @@ import { fetchCountries } from "@/services/countries";
 type Section = Block
 
 export interface Params {
+  [key: string]: string;
+  // TODO: Ensure correct type TargetLanguageCode or LanguageCode
   lang: LanguageCode;
   locale: string;
 }

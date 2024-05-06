@@ -6,7 +6,7 @@ import { getRegionFromLocale, mapCountriesToRegions } from "@/mappers/countries"
 import { useParams } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
-import { type Language } from "deepl-node";
+import { type Language, type TargetLanguageCode } from "deepl-node";
 import { getLanguageCodeForCountry, matchAvailableLang } from "@/utils/languages";
 
 
@@ -19,7 +19,7 @@ export default function CountryPicker({ countries, languages }: CountryPickerPro
   const regions: Regions = mapCountriesToRegions(countries);
   const tabs = Object.keys(regions) as Region[];
 
-  const { locale, lang }: { locale: string, lang: string } = useParams<{ lang: string; locale: string }>();
+  const { locale } = useParams<{ lang: TargetLanguageCode; locale: string }>();
 
   const [selectedTab, setSelectedTab] = useState<Region>(getRegionFromLocale(countries, locale) ?? tabs[0] ?? '');
 

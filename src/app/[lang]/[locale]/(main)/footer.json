@@ -4,10 +4,22 @@
   "logoText": "Pocket",
   "logoDescription": "Invest at the perfect time.",
   "navLinks": [
-    ["Features", "/#features"],
-    ["Reviews", "/#reviews"],
-    ["Pricing", "/#pricing"],
-    ["FAQs", "/#faqs"]
+    {
+      "label": "Features",
+      "href": "#features"
+    },
+    {
+      "label": "Reviews",
+      "href": "#reviews"
+    },
+    {
+      "label": "Pricing",
+      "href": "#pricing"
+    },
+    {
+      "label": "FAQs",
+      "href": "#faqs"
+    }
   ],
   "qrCode": {
     "icon": "QrCode",

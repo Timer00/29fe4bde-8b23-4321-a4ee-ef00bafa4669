@@ -14,7 +14,6 @@ import FlyoutMenu from "@/components/common/FlyoutMenu";
 import { type Country } from "@/interfaces/countries";
 import CountryPicker from "@/components/feature/internationalization/CountryPicker";
 import { type Language } from "deepl-node";
-import { useParams } from "next/navigation";
 
 function MobileNavLink(
   props: Omit<
@@ -100,7 +99,7 @@ export function Header({ data, countries, languages }: HeaderProps) {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            {navLinks.map(([label, href]) => (
+                            {navLinks.map(({ label, href }) => (
                               <MobileNavLink key={href} href={href}>
                                 {label}
                               </MobileNavLink>
