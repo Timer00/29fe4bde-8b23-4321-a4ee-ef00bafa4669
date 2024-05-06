@@ -3,10 +3,10 @@
     "name": "header",
     "logoIcon": "LogoWithLogomark",
     "navLinks": [
-      ["Features", "/#features"],
-      ["Reviews", "/#reviews"],
-      ["Pricing", "/#pricing"],
-      ["FAQs", "/#faqs"]
+      ["Features", "#features"],
+      ["Reviews", "#reviews"],
+      ["Pricing", "#pricing"],
+      ["FAQs", "#faqs"]
     ],
     "mobileNavLinks": [
       {

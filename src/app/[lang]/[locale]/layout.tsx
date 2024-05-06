@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { type ReactNode } from "react";
 import clsx from "clsx";
+import { type Params } from "@/app/[lang]/[locale]/(main)/page";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,12 +19,14 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  params
 }: {
   children: ReactNode;
+  params: Params
 }) {
   return (
-    <html lang="en" className={clsx('bg-gray-50 antialiased', inter.variable)}>
-      <body>{children}</body>
+    <html lang={params.lang} className={clsx('bg-gray-50 antialiased', inter.variable)}>
+    <body>{children}</body>
     </html>
   );
 }
