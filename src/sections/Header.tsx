@@ -13,6 +13,7 @@ import ImageRenderer from "@/components/common/ImageRenderer";
 import FlyoutMenu from "@/components/common/FlyoutMenu";
 import { type Country } from "@/interfaces/countries";
 import CountryPicker from "@/components/feature/internationalization/CountryPicker";
+import { type Language } from "deepl-node";
 
 function MobileNavLink(
   props: Omit<
@@ -39,10 +40,11 @@ export interface HeaderData {
 
 interface HeaderProps {
   data: HeaderData;
-  countries: Country[]
+  countries: Country[];
+  languages: readonly Language[];
 }
 
-export function Header({ data, countries }: HeaderProps) {
+export function Header({ data, countries, languages }: HeaderProps) {
   const { logoIcon, navLinks, loginText, downloadText } = data;
 
   return (
@@ -50,7 +52,7 @@ export function Header({ data, countries }: HeaderProps) {
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link href="/public" aria-label="Home">
+            <Link href="/" aria-label="Home">
               <ImageRenderer name={logoIcon} className="h-10 w-auto" />
             </Link>
             <div className="hidden lg:flex lg:gap-10">
@@ -97,7 +99,7 @@ export function Header({ data, countries }: HeaderProps) {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            {navLinks.map(([label, href]) => (
+                            {navLinks.map(({ label, href }) => (
                               <MobileNavLink key={href} href={href}>
                                 {label}
                               </MobileNavLink>
@@ -109,7 +111,7 @@ export function Header({ data, countries }: HeaderProps) {
                             </Button>
                             <Button href="#">{downloadText}</Button>
                           </div>
-                          <CountryPicker countries={countries}/>
+                          <CountryPicker languages={languages} countries={countries} />
                         </Popover.Panel>
                       </>
                     )}
@@ -118,7 +120,7 @@ export function Header({ data, countries }: HeaderProps) {
               )}
             </Popover>
             <FlyoutMenu>
-              <CountryPicker countries={countries}/>
+              <CountryPicker languages={languages} countries={countries} />
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}

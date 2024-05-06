@@ -4,13 +4,16 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 
-export type LinkFormat = [string, string];
+export type LinkFormat = {
+  label: string,
+  href: string
+};
 
 export function NavLinks({ links }: { links: LinkFormat[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const timeoutRef = useRef<number | null>(null)
 
-  return links.map(([label, href], index) => (
+  return links.map(({ label, href }, index) => (
     <Link
       key={label}
       href={href}
