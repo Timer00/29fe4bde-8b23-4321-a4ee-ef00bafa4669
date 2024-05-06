@@ -12,13 +12,13 @@ export interface Params {
   locale: string;
 }
 
-//TODO: Perhaps generate the paths first and then work on the middleware.
-
 export async function generateStaticParams() {
-  const languages = await fetchLanguages();
-  console.log(languages);
-  const countries = await fetchCountries();
-  const locales = countries.map(country => country["alpha-2"]);
+  // TODO: DeepL can't handle so many requests, need to optimize translations.
+  // const languages = await fetchLanguages();
+  // const countries = await fetchCountries();
+  // const locales = countries.map(country => country["alpha-2"]);
+  const locales = ['de','br','at'];
+  const languages = ['pt-BR','de','en-US','en-GB'].map(l => ({ code: l })) as Language[];
 
   const paths = languages.reduce((state: Params[], language: Language) => {
     const countries = locales.map(country => {
@@ -30,19 +30,16 @@ export async function generateStaticParams() {
     ]
   }, [])
 
-  // console.log(paths);
-
   return paths;
 }
 
 export default async function Home({ params }: { params: Params }) {
-  console.log(params);
   const { lang } = params;
   const translatedContent = await deepTranslate(pageData, 'en', lang as TargetLanguageCode) as Section[];
 
   return (
     <>
-      {translatedContent?.map((section, i) => SectionRenderer(section, i))}
+      {translatedContent?.map((section, i) => <SectionRenderer block={section} key={i} />)}
     </>
   )
 }

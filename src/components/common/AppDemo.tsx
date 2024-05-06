@@ -138,20 +138,20 @@ function Chart({
         }}
         onAnimationComplete={() => setInteractionEnabled(true)}
       />
-      {activePointIndex !== null && (
+      {activePointIndex && (
         <>
           <line
             x1="0"
-            y1={points[activePointIndex].y}
+            y1={points[activePointIndex]?.y}
             x2={totalWidth}
-            y2={points[activePointIndex].y}
+            y2={points[activePointIndex]?.y}
             stroke="#06b6d4"
             strokeDasharray="1 3"
           />
           <circle
             r="4"
-            cx={points[activePointIndex].x}
-            cy={points[activePointIndex].y}
+            cx={points[activePointIndex]?.x}
+            cy={points[activePointIndex]?.y}
             fill="#fff"
             strokeWidth="2"
             stroke="#06b6d4"
@@ -170,7 +170,7 @@ export function AppDemo() {
   const percentageChange =
     activePriceIndex === 0
       ? null
-      : ((activeValue - previousValue) / previousValue) * 100
+      : ((activeValue! - previousValue!) / previousValue!) * 100
 
   return (
     <AppScreen>
@@ -194,7 +194,7 @@ export function AppDemo() {
           <div className="mt-3 border-t border-gray-200 pt-5">
             <div className="flex items-baseline gap-2">
               <div className="text-2xl tabular-nums tracking-tight text-gray-900">
-                {activeValue.toFixed(2)}
+                {activeValue?.toFixed(2)}
               </div>
               <div className="text-sm text-gray-900">USD</div>
               {percentageChange && (

@@ -10,7 +10,6 @@ function createMockTranslate() {
       if (!src) throw new Error(`src not defined: ${src as undefined}`);
       if (!dst) throw new Error(`dst not defined: ${dst as undefined}`);
       charCount += data.length;
-      console.log(charCount);
       resolve(`TRANSLATED:${dst}:${data}`);
     });
   };
@@ -28,7 +27,7 @@ export async function deepTranslate(object: unknown[] | object, sourceLang: Sour
         if (typeof data === 'object' && data) {
           return await deepTranslate(data, sourceLang, targetLang);
         } else if (typeof data === 'string') {
-          return await translate(data, sourceLang, targetLang);
+          return await mockTranslate(data, sourceLang, targetLang);
         } else {
           return data;
         }
@@ -41,7 +40,7 @@ export async function deepTranslate(object: unknown[] | object, sourceLang: Sour
       if (typeof data === 'object' && data) {
         result[key] = await deepTranslate(data, sourceLang, targetLang);
       } else if (typeof data === 'string' && !dontTranslate.includes(key)) {
-        result[key] = await translate(data, sourceLang, targetLang);
+        result[key] = await mockTranslate(data, sourceLang, targetLang);
       } else {
         result[key] = data;
       }

@@ -12,6 +12,7 @@ class DeepLAPI {
     this.translator = new deepl.Translator(this.authKey);
   }
 
+  // TODO: Implement an automatic buffer to optimize number of requests
   async translate(text: string, sourceLang: SourceLanguageCode, targetLang: TargetLanguageCode): Promise<string> {
     try {
       const result: TextResult | TextResult[] = await this.translator.translateText(text, sourceLang, targetLang);

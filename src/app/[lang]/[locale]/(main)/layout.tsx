@@ -9,7 +9,6 @@ import { fetchLanguages } from "@/services/translation";
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const countries = await fetchCountries();
   const languages = await fetchLanguages();
-  console.log('is it server?')
 
   return (
     <>

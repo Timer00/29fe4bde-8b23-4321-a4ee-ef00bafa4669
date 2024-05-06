@@ -16,7 +16,6 @@ interface CountryPickerProps {
 }
 
 export default function CountryPicker({ countries, languages }: CountryPickerProps) {
-  // console.log(locales.all);
   const regions: Regions = mapCountriesToRegions(countries);
   const tabs = Object.keys(regions) as Region[];
 
