@@ -6,12 +6,17 @@ import { getRegionFromLocale, mapCountriesToRegions } from "@/mappers/countries"
 import { useParams } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
+import { type Language } from "deepl-node";
+import { getLanguageCodeForCountry, matchAvailableLang } from "@/utils/languages";
+
 
 interface CountryPickerProps {
-  countries: Country[]
+  countries: Country[];
+  languages: readonly Language[]
 }
 
-export default function CountryPicker({ countries }: CountryPickerProps) {
+export default function CountryPicker({ countries, languages }: CountryPickerProps) {
+  // console.log(locales.all);
   const regions: Regions = mapCountriesToRegions(countries);
   const tabs = Object.keys(regions) as Region[];
 
@@ -29,9 +34,11 @@ export default function CountryPicker({ countries }: CountryPickerProps) {
         Object.keys(selectedCountries).map((country, i) => {
           const currentCountry = selectedCountries[country as LocaleToCountry];
           const countryLocale = currentCountry["alpha-2"];
+          // const countryLang = countryToLang(currentCountry.name);
+          const countryLang = matchAvailableLang(getLanguageCodeForCountry(countryLocale), languages);
           return (
-            <Link scroll={false} key={i} href={`/${lang}/${countryLocale}`}
-                 className="cursor-pointer hover:bg-gray-50 w-full lg:w-1/4 pl-2 py-1.5 flex items-center space-x-2 text-gray-600">
+            <Link scroll={false} key={i} href={`/${countryLang}/${countryLocale}`}
+                  className="cursor-pointer hover:bg-gray-50 w-full lg:w-1/4 pl-2 py-1.5 flex items-center space-x-2 text-gray-600">
               <ImageRenderer className="w-6 h-4 rounded"
                              name={countryLocale} />
               <span

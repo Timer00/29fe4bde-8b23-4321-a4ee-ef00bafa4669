@@ -1,5 +1,5 @@
 import * as deepl from 'deepl-node';
-import { type SourceLanguageCode, type TargetLanguageCode, type TextResult } from "deepl-node";
+import { type Language, type SourceLanguageCode, type TargetLanguageCode, type TextResult } from "deepl-node";
 
 class DeepLAPI {
   private readonly authKey: string;
@@ -18,6 +18,15 @@ class DeepLAPI {
       return result.text;
     } catch (error) {
       console.error('Translation error:', error);
+      throw error;
+    }
+  }
+
+  async getLanguages(): Promise<readonly Language[]> {
+    try {
+      return await this.translator.getTargetLanguages();
+    } catch (error) {
+      console.error('Failed to fetch languages');
       throw error;
     }
   }

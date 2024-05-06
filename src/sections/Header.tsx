@@ -13,6 +13,7 @@ import ImageRenderer from "@/components/common/ImageRenderer";
 import FlyoutMenu from "@/components/common/FlyoutMenu";
 import { type Country } from "@/interfaces/countries";
 import CountryPicker from "@/components/feature/internationalization/CountryPicker";
+import { type Language } from "deepl-node";
 
 function MobileNavLink(
   props: Omit<
@@ -39,10 +40,11 @@ export interface HeaderData {
 
 interface HeaderProps {
   data: HeaderData;
-  countries: Country[]
+  countries: Country[];
+  languages: readonly Language[];
 }
 
-export function Header({ data, countries }: HeaderProps) {
+export function Header({ data, countries, languages }: HeaderProps) {
   const { logoIcon, navLinks, loginText, downloadText } = data;
 
   return (
@@ -109,7 +111,7 @@ export function Header({ data, countries }: HeaderProps) {
                             </Button>
                             <Button href="#">{downloadText}</Button>
                           </div>
-                          <CountryPicker countries={countries}/>
+                          <CountryPicker languages={languages} countries={countries}/>
                         </Popover.Panel>
                       </>
                     )}
@@ -118,7 +120,7 @@ export function Header({ data, countries }: HeaderProps) {
               )}
             </Popover>
             <FlyoutMenu>
-              <CountryPicker countries={countries}/>
+              <CountryPicker languages={languages} countries={countries}/>
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}
