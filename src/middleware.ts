@@ -14,40 +14,54 @@ export async function middleware(request: NextRequest) {
   ];
 
   const { pathname } = request.nextUrl;
+  const cookies = request.cookies;
 
+  // Check if there's a locale-country cookie
+  const cachedLocale = cookies.get('locale-country')?.value;
+
+  // Check if URL already has a valid locale
   const pathnameHasLocale = languageCodes.some(
     locale => pathname.startsWith(`/${locale}/`)
   );
 
   if (pathnameHasLocale) {
     const segments = pathname.split('/');
+    const locale = segments[1];
+    const country = segments[2];
     // Ensure country code is valid after the locale segment
-    if (segments[2] && segments[2].length === 2) {
+    if (country && country.length === 2) {
+      // Update cookie if different from current
+      if (`${locale}/${country}` !== cachedLocale) {
+        const response = NextResponse.next();
+        response.cookies.set('locale-country', `${locale}/${country}`, { path: '/', maxAge: 60 * 60 * 24 * 365 });
+        return response;
+      }
       return NextResponse.next(); // URL is already in the correct format
     }
   }
 
-  // Determine the best locale using accept-language-parser
-  const localeWithCountry = determineBestLocale(request.headers.get('accept-language'), languageCodes);
-  const [locale, country] = localeWithCountry.split('/'); // Split into locale and country
+  // Determine the best locale using accept-language-parser or use cached value
+  const localeWithCountry = cachedLocale ?? determineBestLocale(request.headers.get('accept-language'), languageCodes);
+  const [locale, country] = localeWithCountry.split('/');
 
   // Build the new URL with correct formatting
   request.nextUrl.pathname = `/${locale}/${country}${pathname}`;
-
-  return NextResponse.redirect(request.nextUrl);
+  const response = NextResponse.redirect(request.nextUrl);
+  if (!cachedLocale) { // Set cookie if not previously set
+    response.cookies.set('locale-country', `${locale}/${country}`, { path: '/', maxAge: 60 * 60 * 24 * 365 });
+  }
+  return response;
 }
 
 function determineBestLocale(acceptLanguageHeader: string | null, languageCodes: string[]): string {
-  if (!acceptLanguageHeader) return 'en-US/US'; // Default if no header is present
+  if (!acceptLanguageHeader) return 'en-US/US';
 
   const parsedLanguages = parse(acceptLanguageHeader);
   for (const language of parsedLanguages) {
-    // Check if we have a direct match in our locale map
     const exactMatch = languageCodes.find(l => l === `${language.code}-${language.region}`);
     if (exactMatch) {
       return `${language.code}-${language.region}/${language.region}`;
     }
-    // Optionally, check broader locale match
     const broaderLocale = languageCodes.find(locale => locale.startsWith(language.code));
     if (broaderLocale) {
       const [locale, region] = broaderLocale.split('-');
@@ -55,7 +69,7 @@ function determineBestLocale(acceptLanguageHeader: string | null, languageCodes:
     }
   }
 
-  return 'en-US/US'; // Default locale and country if no matches are found
+  return 'en-US/US';
 }
 
 export const config = {

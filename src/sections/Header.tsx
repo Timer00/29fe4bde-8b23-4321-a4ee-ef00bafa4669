@@ -14,6 +14,7 @@ import FlyoutMenu from "@/components/common/FlyoutMenu";
 import { type Country } from "@/interfaces/countries";
 import CountryPicker from "@/components/feature/internationalization/CountryPicker";
 import { type Language } from "deepl-node";
+import { useParams } from "next/navigation";
 
 function MobileNavLink(
   props: Omit<
@@ -52,7 +53,7 @@ export function Header({ data, countries, languages }: HeaderProps) {
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link href="/public" aria-label="Home">
+            <Link href="/" aria-label="Home">
               <ImageRenderer name={logoIcon} className="h-10 w-auto" />
             </Link>
             <div className="hidden lg:flex lg:gap-10">
@@ -111,7 +112,7 @@ export function Header({ data, countries, languages }: HeaderProps) {
                             </Button>
                             <Button href="#">{downloadText}</Button>
                           </div>
-                          <CountryPicker languages={languages} countries={countries}/>
+                          <CountryPicker languages={languages} countries={countries} />
                         </Popover.Panel>
                       </>
                     )}
@@ -120,7 +121,7 @@ export function Header({ data, countries, languages }: HeaderProps) {
               )}
             </Popover>
             <FlyoutMenu>
-              <CountryPicker languages={languages} countries={countries}/>
+              <CountryPicker languages={languages} countries={countries} />
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}
