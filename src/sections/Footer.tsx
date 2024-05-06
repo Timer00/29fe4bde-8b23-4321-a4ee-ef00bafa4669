@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/common/Button'
 import { Container } from '@/components/common/Container'
 import { TextField } from '@/components/common/Fields'
-import { NavLinks } from '@/components/common/NavLinks'
+import { type LinkFormat, NavLinks } from '@/components/common/NavLinks'
 import React from "react";
 import ImageRenderer from "@/components/common/ImageRenderer";
 
@@ -12,7 +12,7 @@ export interface FooterData {
   logomarkIcon: string;
   logoText: string;
   logoDescription: string;
-  navLinks: [string, string][];
+  navLinks: LinkFormat[];
   qrCode: {
     icon: string;
     borderIcon: string;

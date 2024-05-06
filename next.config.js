@@ -55,7 +55,12 @@ const config = {
         fileLoaderRule.exclude = /\.svg$/i
 
         return config
-    }
+    },
+    experimental: {
+        // TODO: Remove once DeepL API is optimized
+        workerThreads: false,
+        cpus: 1
+    },
 };
 
 export default config;

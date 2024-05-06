@@ -2,12 +2,16 @@ import { Button } from '@/components/common/Button'
 import { CirclesBackground } from '@/components/common/CirclesBackground'
 import { Container } from '@/components/common/Container'
 import Layout from "@/app/[lang]/[locale]/(main)/layout";
+import { type Params } from "@/app/[lang]/[locale]/(main)/page";
 
-export default function NotFound() {
+export default function NotFound({ params }: { params: Params }) {
+
   return (
-    <Layout>
-      <Container className="relative isolate flex h-full flex-col items-center justify-center py-20 text-center sm:py-32">
-        <CirclesBackground className="absolute left-1/2 top-1/2 -z-10 mt-44 w-[68.125rem] -translate-x-1/2 -translate-y-1/2 stroke-gray-300/30 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)]" />
+    <Layout params={params}>
+      <Container
+        className="relative isolate flex h-full flex-col items-center justify-center py-20 text-center sm:py-32">
+        <CirclesBackground
+          className="absolute left-1/2 top-1/2 -z-10 mt-44 w-[68.125rem] -translate-x-1/2 -translate-y-1/2 stroke-gray-300/30 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)]" />
         <p className="text-sm font-semibold text-gray-900">404</p>
         <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-900">
           Page not found
