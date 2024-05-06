@@ -1,5 +1,5 @@
-import { Container } from '@/components/Container'
-import ImageRenderer from "@/components/ImageRenderer";
+import { Container } from '@/components/common/Container'
+import ImageRenderer from "@/components/common/ImageRenderer";
 
 interface Feature {
   name: string;

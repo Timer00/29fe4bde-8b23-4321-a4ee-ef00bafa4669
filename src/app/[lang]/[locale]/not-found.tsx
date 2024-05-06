@@ -1,6 +1,6 @@
-import { Button } from '@/components/Button'
-import { CirclesBackground } from '@/components/CirclesBackground'
-import { Container } from '@/components/Container'
+import { Button } from '@/components/common/Button'
+import { CirclesBackground } from '@/components/common/CirclesBackground'
+import { Container } from '@/components/common/Container'
 import Layout from "@/app/[lang]/[locale]/(main)/layout";
 
 export default function NotFound() {

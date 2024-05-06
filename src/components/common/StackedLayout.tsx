@@ -1,30 +1,36 @@
 import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { twJoin } from "tailwind-merge";
-import { type ReactNode, useState } from "react";
+import React, { type Dispatch, type ReactNode, type SetStateAction } from "react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-interface StackedLayoutProps {
-  tabs: string[];
+interface StackedLayoutProps<T extends string> {
+  tabs: T[];
   children: ReactNode;
+  selectedTab: T;
+  setSelectedTab: Dispatch<SetStateAction<T>>;
 }
 
-export default function StackedLayout({tabs , children}: StackedLayoutProps) {
-  const [selectedTab, setSelectedTab] = useState<string>(tabs[0] ?? '');
+export default function StackedLayout<T extends string>({
+  tabs,
+  selectedTab,
+  setSelectedTab,
+  children,
+}: StackedLayoutProps<T>) {
 
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="border-b border-gray-200 bg-white">
+        <Disclosure as="nav" className="w-full lg:border-b lg:border-gray-200 lg:bg-white">
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="flex h-16 justify-between">
                   <div className="flex">
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                       {tabs.map((tab, i) => (
                         <a
                           key={i}
-                          onClick={()=>setSelectedTab(tab)}
+                          onClick={() => setSelectedTab(tab)}
                           className={twJoin(
                             tab === selectedTab
                               ? 'border-indigo-500 text-gray-900'
@@ -38,17 +44,14 @@ export default function StackedLayout({tabs , children}: StackedLayoutProps) {
                       ))}
                     </div>
                   </div>
-                  <div className="-mr-2 flex items-center sm:hidden">
+                  <div className="flex items-center sm:hidden w-full">
                     {/* Mobile menu button */}
                     <Disclosure.Button
-                      className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                      className="w-full relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="absolute -inset-0.5" />
                       <span className="sr-only">Open main menu</span>
-                      {open ? (
-                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                      ) : (
-                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                      )}
+                      <span>Country</span>
+                      <ChevronDownIcon className="h-5 w-5 ui-open:rotate-180 ui-open:transform" aria-hidden="true" />
                     </Disclosure.Button>
                   </div>
                 </div>
@@ -56,9 +59,9 @@ export default function StackedLayout({tabs , children}: StackedLayoutProps) {
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 pb-3 pt-2">
-                  {tabs.map((tab, i) => (
+                  {open && tabs.map((tab, i) => (
                     <Disclosure.Button
-                      onClick={()=>setSelectedTab(tab)}
+                      onClick={() => setSelectedTab(tab)}
                       key={i}
                       as="a"
                       className={twJoin(
@@ -78,8 +81,8 @@ export default function StackedLayout({tabs , children}: StackedLayoutProps) {
           )}
         </Disclosure>
 
-        <div className="py-10">
-          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>
+        <div className="py-5 hidden lg:block">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 flex-wrap flex">{children}</div>
         </div>
       </div>
     </>

@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import { AuthLayout } from '@/components/AuthLayout'
-import { Button } from '@/components/Button'
-import { SelectField, TextField } from '@/components/Fields'
+import { AuthLayout } from '@/components/common/AuthLayout'
+import { Button } from '@/components/common/Button'
+import { SelectField, TextField } from '@/components/common/Fields'
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {

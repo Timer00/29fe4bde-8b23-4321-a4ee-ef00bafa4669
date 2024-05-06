@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { Popover } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { type LinkFormat, NavLinks } from '@/components/NavLinks'
+import { Button } from '@/components/common/Button'
+import { Container } from '@/components/common/Container'
+import { type LinkFormat, NavLinks } from '@/components/common/NavLinks'
 import React from "react";
 import { ChevronUpIcon, MenuIcon } from "@/images/icons/icons";
-import ImageRenderer from "@/components/ImageRenderer";
-import FlyoutMenu from "@/components/FlyoutMenu";
-import StackedLayout from "@/components/StackedLayout";
+import ImageRenderer from "@/components/common/ImageRenderer";
+import FlyoutMenu from "@/components/common/FlyoutMenu";
+import { type Country } from "@/interfaces/countries";
+import CountryPicker from "@/components/feature/internationalization/CountryPicker";
 
 function MobileNavLink(
   props: Omit<
@@ -28,21 +29,22 @@ function MobileNavLink(
   )
 }
 
-type HeaderData = {
+export interface HeaderData {
   name: string;
   logoIcon: string;
   navLinks: LinkFormat[];
-  //TODO: Ensure both are following same format.
-  mobileNavLinks: {
-    href: string;
-    label: string;
-  }[];
   loginText: string;
   downloadText: string;
-};
+}
 
-export function Header({ data }: { data: HeaderData }) {
-  const { logoIcon, navLinks, mobileNavLinks, loginText, downloadText } = data;
+interface HeaderProps {
+  data: HeaderData;
+  countries: Country[]
+}
+
+export function Header({ data, countries }: HeaderProps) {
+  const { logoIcon, navLinks, loginText, downloadText } = data;
+
   return (
     <header>
       <nav>
@@ -95,9 +97,9 @@ export function Header({ data }: { data: HeaderData }) {
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
                         >
                           <div className="space-y-4">
-                            {mobileNavLinks.map((link) => (
-                              <MobileNavLink key={link.href} href={link.href}>
-                                {link.label}
+                            {navLinks.map(([label, href]) => (
+                              <MobileNavLink key={href} href={href}>
+                                {label}
                               </MobileNavLink>
                             ))}
                           </div>
@@ -107,6 +109,7 @@ export function Header({ data }: { data: HeaderData }) {
                             </Button>
                             <Button href="#">{downloadText}</Button>
                           </div>
+                          <CountryPicker countries={countries}/>
                         </Popover.Panel>
                       </>
                     )}
@@ -115,9 +118,7 @@ export function Header({ data }: { data: HeaderData }) {
               )}
             </Popover>
             <FlyoutMenu>
-              <StackedLayout tabs={['Europe','America','Oceania','Asia','Africa','Global']}>
-                <div>Hello</div>
-              </StackedLayout>
+              <CountryPicker countries={countries}/>
             </FlyoutMenu>
             <Button href="/login" variant="outline" className="hidden lg:block">
               {loginText}

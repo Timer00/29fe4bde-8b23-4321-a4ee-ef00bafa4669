@@ -1,12 +1,12 @@
 import React, { useId } from 'react'
 import clsx from 'clsx'
 
-import { AppDemo } from '@/components/AppDemo'
-import { AppStoreLink } from '@/components/AppStoreLink'
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { PhoneFrame } from '@/components/PhoneFrame'
-import ImageRenderer from "@/components/ImageRenderer";
+import { AppDemo } from '@/components/common/AppDemo'
+import { AppStoreLink } from '@/components/common/AppStoreLink'
+import { Button } from '@/components/common/Button'
+import { Container } from '@/components/common/Container'
+import { PhoneFrame } from '@/components/common/PhoneFrame'
+import ImageRenderer from "@/components/common/ImageRenderer";
 import { PlayIcon } from "@/images/icons/icons";
 
 function BackgroundIllustration(props: React.ComponentPropsWithoutRef<'div'>) {
@@ -140,7 +140,7 @@ export function Hero({ data }: {data: HeroData}) {
             >
               {featuredIn.logos.map(({ name, logo, className = '' }, i: number) => (
                 <li key={name} className={clsx('flex', className)}>
-                  <ImageRenderer name={logo} index={i}/>
+                  <ImageRenderer name={logo} index={i} className="w-24"/>
                 </li>
               ))}
             </ul>

@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
+import { Button } from '@/components/common/Button'
+import { Container } from '@/components/common/Container'
 import { CheckIcon, LogomarkIcon } from "@/images/icons/icons";
 
 interface PlanData {

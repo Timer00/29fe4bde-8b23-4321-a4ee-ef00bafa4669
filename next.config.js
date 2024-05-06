@@ -25,7 +25,29 @@ const config = {
                 test: /\.svg$/i,
                 issuer: fileLoaderRule.issuer,
                 resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-                use: ['@svgr/webpack'],
+                use: [{
+                    loader: '@svgr/webpack',
+                    options: {
+                        svgoConfig: {
+                            plugins: [
+                                // These ensure we can handle multiple SVGs in the same page without id conflicts
+                                {
+                                    name: 'cleanupIds',
+                                    active: false
+                                },
+                                {
+                                    name: 'prefixIds',
+                                    active: true
+                                },
+                                {
+                                    // This is to fix some malformed SVGs
+                                    name: 'removeDimensions',
+                                    active: true
+                                }
+                            ]
+                        }
+                    }
+                }]
             },
         )
 

@@ -1,4 +1,9 @@
-import { Container } from '@/components/Container'
+import { Container } from '@/components/common/Container'
+
+type FaqData = {
+  question: string;
+  answer: string;
+};
 
 type FaqsData = {
   title: string;
@@ -6,11 +11,6 @@ type FaqsData = {
   contactText: string;
   contactUrl: string;
   faqs: FaqData[][];
-};
-
-type FaqData = {
-  question: string;
-  answer: string;
 };
 
 export function Faqs({ data }: { data: FaqsData }) {

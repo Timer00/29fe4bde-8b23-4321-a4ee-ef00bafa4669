@@ -12,10 +12,10 @@ import {
 } from 'framer-motion'
 import { useDebouncedCallback } from 'use-debounce'
 
-import { AppScreen } from '@/components/AppScreen'
-import { CircleBackground } from '@/components/CircleBackground'
-import { Container } from '@/components/Container'
-import { PhoneFrame } from '@/components/PhoneFrame'
+import { AppScreen } from '@/components/common/AppScreen'
+import { CircleBackground } from '@/components/common/CircleBackground'
+import { Container } from '@/components/common/Container'
+import { PhoneFrame } from '@/components/common/PhoneFrame'
 import {
   DiageoLogo,
   LaravelLogo,
@@ -25,8 +25,8 @@ import {
   StaticKitLogo,
   TransistorLogo,
   TupleLogo,
-} from '@/components/StockLogos'
-import ImageRenderer from "@/components/ImageRenderer";
+} from '@/components/common/StockLogos'
+import ImageRenderer from "@/components/common/ImageRenderer";
 
 const MotionAppScreenHeader = motion(AppScreen.Header)
 const MotionAppScreenBody = motion(AppScreen.Body)

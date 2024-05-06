@@ -7,15 +7,29 @@ import LogoHuffpost from '@/images/logos/huffpost.svg'
 import LogoTechcrunch from '@/images/logos/techcrunch.svg'
 import LogoWired from '@/images/logos/wired.svg'
 import QrCode from '@/images/qr-code.svg'
-import React, { type FC } from "react";
+import React, { type FC, type SVGProps } from "react";
 import {
-  CheckIcon, ChevronUpIcon,
+  CheckIcon,
+  ChevronUpIcon,
   DeviceArrowIcon,
-  DeviceCardsIcon, DeviceChartIcon,
+  DeviceCardsIcon,
+  DeviceChartIcon,
   DeviceClockIcon,
-  DeviceListIcon, DeviceLockIcon, DeviceNotificationIcon, DeviceTouchIcon,
-  DeviceUserIcon, LogoIcon, LogomarkIcon, LogoWithLogomark, MenuIcon, PlayIcon, QrCodeBorderIcon, StarIcon, UserIcon
+  DeviceListIcon,
+  DeviceLockIcon,
+  DeviceNotificationIcon,
+  DeviceTouchIcon,
+  DeviceUserIcon,
+  LogoIcon,
+  LogomarkIcon,
+  LogoWithLogomark,
+  MenuIcon,
+  PlayIcon,
+  QrCodeBorderIcon,
+  StarIcon,
+  UserIcon
 } from "@/images/icons/icons";
+import { countryCodeToSVG } from "@/images/country-flags/country-list";
 
 /*
 * Whenever adding a new SVG/icon to files or icons.tsx,
@@ -50,6 +64,7 @@ const svgs = {
   "QrCodeBorderIcon": QrCodeBorderIcon,
   "LogomarkIcon": LogomarkIcon,
   "LogoWithLogomark": LogoWithLogomark,
+  ...countryCodeToSVG
 }
 
 type FileNames = keyof typeof svgs;
@@ -63,7 +78,7 @@ interface ImageRendererProps {
 
 // Renders images(svgs, icons..) from a string alias.
 export default function ImageRenderer({ name, index, ...props }: ImageRendererProps) {
-  const component = svgs[name as FileNames]
+  const component: FC<SVGProps<SVGElement>> = svgs[name as FileNames];
 
   if (typeof component !== 'undefined') {
     return React.createElement(component as FC<typeof props>, {

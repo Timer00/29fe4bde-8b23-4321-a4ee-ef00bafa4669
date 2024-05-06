@@ -1,0 +1,12 @@
+{
+  "name": "header",
+  "logoIcon": "LogoWithLogomark",
+  "navLinks": [
+    ["Features", "#features"],
+    ["Reviews", "#reviews"],
+    ["Pricing", "#pricing"],
+    ["FAQs", "#faqs"]
+  ],
+  "loginText": "Log in",
+  "downloadText": "Download the app"
+}
