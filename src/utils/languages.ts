@@ -1,4 +1,4 @@
-import cldrTerritories from "@/cldr-territoryInfo.json";
+import cldrTerritories from "@/data/cldr-territoryInfo.json";
 import type { Language } from "deepl-node";
 
 interface LanguagePopulationData {
