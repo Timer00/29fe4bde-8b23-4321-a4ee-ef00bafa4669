@@ -18,7 +18,7 @@ function createMockTranslate() {
 const mockTranslate = createMockTranslate();
 
 // TODO: Add these options through a config/content file
-const dontTranslate = ['author', 'name', 'contactUrl', 'Monthly', 'Annually', 'href', 'logomarkClassName', 'icon', 'screen', 'logo', 'logoIcon', 'LogomarkIcon','navLinks','borderIcon']
+const dontTranslate = ['author', 'name', 'contactUrl', 'Monthly', 'Annually', 'href', 'logomarkClassName', 'icon', 'screen', 'logo', 'logoIcon', 'LogomarkIcon', 'navLinks', 'borderIcon', 'className'];
 
 export async function deepTranslate(object: unknown[] | object, sourceLang: SourceLanguageCode, targetLang: TargetLanguageCode): Promise<unknown[] | object> {
   let result: Record<string, unknown> | unknown[];
