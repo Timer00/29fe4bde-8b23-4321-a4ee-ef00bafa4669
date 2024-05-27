@@ -1,7 +1,7 @@
 import pageData from '@/app/[lang]/[locale]/(main)/content.json';
 import SectionRenderer, { type Block } from "@/sections/SectionRenderer";
 import { type Language, type LanguageCode, type TargetLanguageCode } from "deepl-node";
-import { deepTranslate } from "@/utils/translation";
+import { aiDeepTranslate } from "@/utils/translation";
 import { fetchLanguages } from "@/services/translation";
 import { fetchCountries } from "@/services/countries";
 
@@ -37,7 +37,7 @@ export async function generateStaticParams() {
 
 export default async function Home({ params }: { params: Params }) {
   const { lang } = params;
-  const translatedContent = await deepTranslate(pageData, 'en', lang as TargetLanguageCode) as Section[];
+  const translatedContent = aiDeepTranslate(pageData, 'en', lang as TargetLanguageCode) as Section[];
 
   return (
     <>
