@@ -1,5 +1,6 @@
 import type { SourceLanguageCode, TargetLanguageCode } from "deepl-node";
-import { translate } from "@/services/translation";
+import { aiTranslate, translate } from "@/services/translation";
+import { isObject } from "@vitest/utils";
 
 // Used for testing translation without consuming DeepL credits
 function createMockTranslate() {
@@ -18,7 +19,7 @@ function createMockTranslate() {
 const mockTranslate = createMockTranslate();
 
 // TODO: Add these options through a config/content file
-const dontTranslate = ['author', 'name', 'contactUrl', 'Monthly', 'Annually', 'href', 'logomarkClassName', 'icon', 'screen', 'logo', 'logoIcon', 'LogomarkIcon', 'navLinks', 'borderIcon', 'className'];
+const dontTranslate = ['author', 'name', 'contactUrl', 'Monthly', 'Annually', 'href', 'logomarkClassName', 'icon', 'screen', 'logo', 'logoIcon', 'logomarkIcon', 'navLinks', 'borderIcon', 'className'];
 
 export async function deepTranslate(object: unknown[] | object, sourceLang: SourceLanguageCode, targetLang: TargetLanguageCode): Promise<unknown[] | object> {
   let result: Record<string, unknown> | unknown[];
@@ -28,7 +29,7 @@ export async function deepTranslate(object: unknown[] | object, sourceLang: Sour
         if (typeof data === 'object' && data) {
           return await deepTranslate(data, sourceLang, targetLang);
         } else if (typeof data === 'string') {
-          return await translate(data, sourceLang, targetLang);
+          return await aiTranslate(data, sourceLang, targetLang);
         } else {
           return data;
         }
@@ -41,7 +42,7 @@ export async function deepTranslate(object: unknown[] | object, sourceLang: Sour
       if (typeof data === 'object' && data) {
         result[key] = await deepTranslate(data, sourceLang, targetLang);
       } else if (typeof data === 'string' && !dontTranslate.includes(key)) {
-        result[key] = await translate(data, sourceLang, targetLang);
+        result[key] = await aiTranslate(data, sourceLang, targetLang);
       } else {
         result[key] = data;
       }
@@ -50,4 +51,3 @@ export async function deepTranslate(object: unknown[] | object, sourceLang: Sour
     return result
   }
 }
-
