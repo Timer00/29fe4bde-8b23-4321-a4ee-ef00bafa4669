@@ -8,7 +8,8 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    DEEPL_KEY: z.string()
+    DEEPL_KEY: z.string(),
+    OPENAI_KEY: z.string()
   },
 
   /**
@@ -26,7 +27,8 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    DEEPL_KEY: process.env.DEEPL_KEY
+    DEEPL_KEY: process.env.DEEPL_KEY,
+    OPENAI_KEY: process.env.OPENAI_KEY
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
