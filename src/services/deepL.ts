@@ -43,6 +43,6 @@ class DeepLAPI {
   }
 }
 
-const DeepL = new DeepLAPI(process.env.DEEPL_KEY);
+const deepL = new DeepLAPI(process.env.DEEPL_KEY);
 
-export default DeepL;
+export default deepL;
